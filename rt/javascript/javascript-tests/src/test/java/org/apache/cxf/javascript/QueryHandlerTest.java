@@ -60,46 +60,6 @@ public class QueryHandlerTest extends AbstractCXFSpringTest {
         // we don't need any.
     }
 
-    /** {@inheritDoc}*/
-    @Override
-    protected String[] getConfigLocations() {
-        TestUtil.getNewPortNumber("TestPort");
-        return new String[] {"classpath:HelloWorldDocLitBeans.xml",
-                             "classpath:DocLitBareClientTestBeans.xml",
-                             "classpath:HelloWorldGreeterBeans.xml"};
-
-    }
-
-    @Before
-    public void before() {
-        ServerFactoryBean serverFactoryBean = getBean(ServerFactoryBean.class, "hw-service-endpoint");
-        hwEndpoint = serverFactoryBean.create().getEndpoint();
-        serverFactoryBean = getBean(ServerFactoryBean.class, "dlb-service-endpoint");
-        dlbEndpoint = serverFactoryBean.create().getEndpoint();
-    }
-
-    private String getStringFromURL(URL url) throws IOException {
-        InputStream jsStream = url.openStream();
-        return readStringFromStream(jsStream);
-    }
-
-    private String readStringFromStream(InputStream jsStream) throws IOException {
-        InputStreamReader isr = new InputStreamReader(jsStream, UTF_8);
-        BufferedReader in = new BufferedReader(isr);
-        String line = in.readLine();
-        StringBuilder js = new StringBuilder();
-        while (line != null) {
-            String[] tok = line.split("\\s");
-
-            for (int x = 0; x < tok.length; x++) {
-                String token = tok[x];
-                js.append("  ").append(token);
-            }
-            line = in.readLine();
-        }
-        return js.toString();
-    }
-
     @Test
     public void hwQueryTest() throws Exception {
         URL endpointURL = new URL(hwEndpoint.getEndpointInfo().getAddress()  + "?js");
