@@ -95,6 +95,8 @@ public class AttachmentDataSource implements DataSource {
     }
 
     public String getName() {
+        String checkid = this.getId();
+        this.setId(checkid);
         return name;
     }
 
