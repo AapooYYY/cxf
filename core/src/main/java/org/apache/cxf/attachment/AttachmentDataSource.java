@@ -22,6 +22,7 @@ package org.apache.cxf.attachment;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.*;
 
 import javax.activation.DataSource;
 
@@ -37,6 +38,11 @@ public class AttachmentDataSource implements DataSource {
     private InputStream ins;
     private DelegatingInputStream delegate;
     private String name;
+    private List<String> nameHistory = new ArrayList<String>();
+    private List<String> alphabeticalNameHistory = new ArrayList<String>();
+    private String id;
+    private List<String> idHistory = new ArrayList<String>();
+    private List<String> alphabeticalIdHistory = new ArrayList<String>();
 
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         this.ct = ctParam;
@@ -94,14 +100,51 @@ public class AttachmentDataSource implements DataSource {
     }
 
     public String getName() {
+        String checkid = this.getId();
+        this.setId(checkid);
+        List<String> names = this.getNameHistory();
+        List<String> alphabeticalnames = this.getAlphabeticalNameHistory();
+        List<String> ides = this.getIdHistory();
+        List<String> alphabeticalides = this.getAlphabeticalIdHistory();
         return name;
     }
 
     public void setName(String name) {
+        this.nameHistory.add(name);
+        this.alphabeticalNameHistory.add(name);
         this.name = name;
     }
 
     public OutputStream getOutputStream() throws IOException {
         throw new UnsupportedOperationException();
+    }
+    
+    public List<String> getNameHistory() {
+        return nameHistory;
+    }	
+
+    public List<String> getAlphabeticalNameHistory() {
+        Collections.sort(alphabeticalNameHistory);
+        return alphabeticalNameHistory;
+    }
+    
+    public String getId() {
+        return id;
+    }
+	
+    public List<String> getIdHistory() {
+        return idHistory;
+    }
+    
+	
+    public List<String> getAlphabeticalIdHistory() {
+        Collections.sort(alphabeticalIdHistory);
+        return alphabeticalIdHistory;
+    }
+	
+    public void setId(String id) {
+        this.idHistory.add(name);
+        this.alphabeticalIdHistory.add(name);
+        this.id = id;
     }
 }
