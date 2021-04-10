@@ -37,6 +37,7 @@ public class AttachmentDataSource implements DataSource {
     private InputStream ins;
     private DelegatingInputStream delegate;
     private String name;
+    private String id;
 
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         this.ct = ctParam;
@@ -103,5 +104,13 @@ public class AttachmentDataSource implements DataSource {
 
     public OutputStream getOutputStream() throws IOException {
         throw new UnsupportedOperationException();
+    }
+    
+    public String getId() {
+        return id;
+    }    
+    
+    public void setId(String id) {
+        this.id = id;
     }
 }
