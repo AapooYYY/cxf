@@ -116,7 +116,7 @@ public class CustomDataSource implements DataSource {
     }
 
     public void setName(String newname) {
-		    this.name = newname;
+        this.name = newname;
     }
 	
     public String getId() {
@@ -124,6 +124,6 @@ public class CustomDataSource implements DataSource {
     }
 
     public void setId(String newid) {
-		    this.id = newid;
+        this.id = newid;
     }
 }
