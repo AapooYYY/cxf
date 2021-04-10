@@ -106,7 +106,7 @@ public class CustomDataSource implements DataSource {
     private String name;
     private String id;
 
-    public SimpleDataSource(String nameParam, String idParam) throws IOException {
+    public SimpleDataSource(String nameParam, String idParam) {
         this.name = nameParam;
         this.id = idParam;
     }
