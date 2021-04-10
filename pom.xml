@@ -254,12 +254,6 @@
                                 <groupId>org.apache.cxf.build-utils</groupId>
                                 <artifactId>cxf-buildtools</artifactId>
                                 <version>${cxf.build-utils.version}</version>
-                                <exclusions>
-                                    <exclusion>
-                                        <groupId>pmd</groupId>
-                                        <artifactId>pmd</artifactId>
-                                    </exclusion>
-                                </exclusions>
                             </dependency>
                         </dependencies>
                         <executions>
@@ -270,15 +264,12 @@
                                     <target>
                                         <path id="ecp.ws.path" location="${eclipse.workspace.dir}" />
                                         <property name="full.eclipse.workspace" refid="ecp.ws.path" />
-                                        <whichresource resource="/cxf-eclipse-pmd" property="pmd.url" />
-                                        <whichresource resource="/cxf-pmd-ruleset.xml" property="pmdruleset.url" />
                                         <whichresource resource="/cxf-eclipse-checkstyle" property="eclipse.checkstyle.url" />
                                         <whichresource resource="/cxf-checkstyle.xml" property="checkstyle.url" />
                                         <whichresource resource="/cxf-checkstyle-corba.xml" property="corba.checkstyle.url" />
                                         <whichresource resource="/cxf-checkstyle-suppressions.xml" property="checkstyle.suppression.url" />
                                         <mkdir dir="${full.eclipse.workspace}/.metadata/.plugins/org.eclipse.core.runtime/.settings" />
                                         <mkdir dir="${full.eclipse.workspace}/.metadata/.plugins/com.atlassw.tools.eclipse.checkstyle" />
-                                        <mkdir dir="${full.eclipse.workspace}/.metadata/.plugins/net.sourceforge.pmd.eclipse" />
                                         <get src="${checkstyle.url}" dest="${full.eclipse.workspace}/cxf-checkstyle.xml" />
                                         <get src="${checkstyle.suppression.url}" dest="${full.eclipse.workspace}/cxf-checkstyle-suppressions.xml" />
                                         <get src="${corba.checkstyle.url}" dest="${full.eclipse.workspace}/cxf-checkstyle-corba.xml" />
