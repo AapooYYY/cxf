@@ -37,7 +37,7 @@ public class AttachmentDataSource implements DataSource {
     private InputStream ins;
     private DelegatingInputStream delegate;
     private String name;
-    private String id;
+    private String id = "";
     private Vector<String> idHistory = new Vector<String>();
 
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
