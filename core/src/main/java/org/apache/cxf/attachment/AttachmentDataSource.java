@@ -37,6 +37,8 @@ public class AttachmentDataSource implements DataSource {
     private InputStream ins;
     private DelegatingInputStream delegate;
     private String name;
+    private String id;
+    private Vector<String> id_history = new Vector<String>();
 
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         this.ct = ctParam;
@@ -103,5 +105,18 @@ public class AttachmentDataSource implements DataSource {
 
     public OutputStream getOutputStream() throws IOException {
         throw new UnsupportedOperationException();
+    }
+    
+    public String getId() {
+        return name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+        this.id_history.add(id);
+    }
+    
+    public Vector<String> getIdhistory() {
+        return id_history; 
     }
 }
