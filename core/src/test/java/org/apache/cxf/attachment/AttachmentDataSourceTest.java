@@ -8,6 +8,7 @@ import javax.activation.DataSource;
 import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -21,8 +22,12 @@ public class AttachmentDataSourceTest {
   
     @Test
     public void testGetName() {
-        DataSource ds = new AttachmentDataSource(ctParam, inParam1);
-        assertEquals("ctParam",ds.getName());
+        try {
+            DataSource ds = new AttachmentDataSource(ctParam, inParam1);
+            assertEquals("ctParam",ds.getName());
+        } catch (IOException e) {
+            String message = e.getMessage();
+            assertTrue(message, message.contains(ctParam));
     }
     
     /*@Test
