@@ -24,7 +24,7 @@ public class AttachmentDataSourceTest {
     public void testGetName() {
         try {
             DataSource ds = new AttachmentDataSource(ctParam, inParam1);
-            ds.setName("ctParam");
+            //ds.setName("ctParam");
             assertEquals("ctParam",ds.getName());
         } catch (IOException e) {
             String message = e.getMessage();
