@@ -564,7 +564,7 @@ public final class AttachmentUtil {
         return new LazyDataSource(contentId, atts);
     }
     
-    public static DataSource createAttachmentDataSource(String ctParam, InputStream inParam) {
+    public static DataSource createAttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         return new AttachmentDataSource(ctParam, inParam);
     }
 
