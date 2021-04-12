@@ -23,4 +23,12 @@ public class AttachmentDataSourceTest {
         DataSource ds = new AttachmentDataSource(ctParam, inParam1);
         assertEquals("ctParam",ds.getName());
     }
+    
+    @Test
+    public void testSetId() {
+        String testId = "2t3";
+        DataSource ds = new AttachmentDataSource(ctParam, inParam1);
+        ds.setId(testId);
+        assertEquals("2t3",ds.getId());
+    }
 }
