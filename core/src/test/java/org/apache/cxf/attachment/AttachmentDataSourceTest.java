@@ -27,9 +27,9 @@ public class AttachmentDataSourceTest {
     
     @Test
     public void testGetId() {
-        String testId = "2t3";
+        
         DataSource ds = new AttachmentDataSource(ctParam, inParam1);
-        ds.setId(testId);
+        
         assertEquals("2t3",ds.getId());
     }
 }
