@@ -47,6 +47,7 @@ public class AttachmentDataSource implements DataSource {
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         this.ct = ctParam;
         ins = inParam;
+	setName(ctParam);
     }
 
     public boolean isCached() {
