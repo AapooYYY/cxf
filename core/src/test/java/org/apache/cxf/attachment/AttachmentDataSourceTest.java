@@ -6,6 +6,8 @@ import javax.activation.DataHandler;
 import javax.activation.DataSource;
 
 import org.junit.Test;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
