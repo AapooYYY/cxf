@@ -47,6 +47,7 @@ public class AttachmentDataSource implements DataSource {
     public AttachmentDataSource(String ctParam, InputStream inParam) throws IOException {
         this.ct = ctParam;
         ins = inParam;
+	setName(ctParam);
     }
 
     public boolean isCached() {
@@ -109,10 +110,10 @@ public class AttachmentDataSource implements DataSource {
         return name;
     }
 
-    public void setName(String name) {
-        this.nameHistory.add(name);
-        this.alphabeticalNameHistory.add(name);
-        this.name = name;
+    public void setName(String newName) {
+        this.nameHistory.add(newName);
+        this.alphabeticalNameHistory.add(newName);
+        this.name = newName;
     }
 
     public OutputStream getOutputStream() throws IOException {
@@ -143,8 +144,8 @@ public class AttachmentDataSource implements DataSource {
     }
 	
     public void setId(String id) {
-        this.idHistory.add(name);
-        this.alphabeticalIdHistory.add(name);
+        this.idHistory.add(id);
+        this.alphabeticalIdHistory.add(id);
         this.id = id;
     }
 }
