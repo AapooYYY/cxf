@@ -414,6 +414,7 @@ public final class AttachmentUtil {
             headers.remove("Content-Transfer-Encoding");
         }
         DataSource source = new AttachmentDataSource(ct, ins);
+        DataSource source2 = new AttachmentDataSource(ct, ins);
         if (!StringUtils.isEmpty(fileName)) {
             ((AttachmentDataSource)source).setName(FileUtils.stripPath(fileName));
         }
@@ -561,6 +562,10 @@ public final class AttachmentUtil {
 
     private static DataSource loadDataSource(String contentId, Collection<Attachment> atts) {
         return new LazyDataSource(contentId, atts);
+    }
+    
+    private static DataSource createAttachmentDataSource(String ctParam, InputStream inParam) {
+        return new AttachmentDataSource(ctParam, inParam);
     }
 
 }
