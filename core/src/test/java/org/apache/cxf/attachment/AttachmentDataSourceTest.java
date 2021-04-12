@@ -28,6 +28,7 @@ public class AttachmentDataSourceTest {
         } catch (IOException e) {
             String message = e.getMessage();
             assertTrue(message, message.contains(ctParam));
+            }
     }
     
     /*@Test
@@ -37,4 +38,4 @@ public class AttachmentDataSourceTest {
         ds.setId(testId);
         assertEquals("2t3",ds.getId());
     }*/
-}
+    }
