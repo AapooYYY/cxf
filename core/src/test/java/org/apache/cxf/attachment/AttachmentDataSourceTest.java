@@ -16,7 +16,7 @@ public class AttachmentDataSourceTest {
 
     private static final String ctParam = "ctParam";
     byte[] data = "123,456,789,123,456,789".getBytes();
-    private static final InputStream inParam = new ByteArrayInputStream(data);
+    private InputStream inParam = new ByteArrayInputStream(data);
   
     @Test
     public void testGetName() {
