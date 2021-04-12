@@ -13,7 +13,7 @@ import static org.junit.Assert.fail;
 public class AttachmentDataSourceTest {
 
     private static final String ctParam = "ctParam";
-    private static final InputStream InParam = "inputstream";
+    private static final InputStream inParam = new FileInputStream("c:\\data\\input-text.txt");
   
     @Test
     public void testGetName() {
