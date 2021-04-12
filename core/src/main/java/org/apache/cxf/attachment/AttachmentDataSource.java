@@ -143,8 +143,8 @@ public class AttachmentDataSource implements DataSource {
     }
 	
     public void setId(String id) {
-        this.idHistory.add(name);
-        this.alphabeticalIdHistory.add(name);
+        this.idHistory.add(id);
+        this.alphabeticalIdHistory.add(id);
         this.id = id;
     }
 }
