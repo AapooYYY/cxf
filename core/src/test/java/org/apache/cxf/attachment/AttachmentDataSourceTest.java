@@ -20,7 +20,7 @@ public class AttachmentDataSourceTest {
   
     @Test
     public void testGetName() {
-        DataSource ds = new LazyDataSource(ctParam, inParam);
+        DataSource ds = new AttachmentDataSource(ctParam, inParam);
         assertEquals("ctParam",ds.getName());
     }
 }
