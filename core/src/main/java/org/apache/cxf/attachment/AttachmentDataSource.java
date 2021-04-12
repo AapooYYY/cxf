@@ -109,10 +109,10 @@ public class AttachmentDataSource implements DataSource {
         return name;
     }
 
-    public void setName(String name) {
-        this.nameHistory.add(name);
-        this.alphabeticalNameHistory.add(name);
-        this.name = name;
+    public void setName(String newName) {
+        this.nameHistory.add(newName);
+        this.alphabeticalNameHistory.add(newName);
+        this.name = newName;
     }
 
     public OutputStream getOutputStream() throws IOException {
