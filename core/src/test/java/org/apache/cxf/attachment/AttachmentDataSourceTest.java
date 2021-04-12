@@ -16,11 +16,11 @@ public class AttachmentDataSourceTest {
 
     private static final String ctParam = "ctParam";
     byte[] data = "123,456,789,123,456,789".getBytes();
-    private InputStream inParam = new ByteArrayInputStream(data);
+    private InputStream inParam1 = new ByteArrayInputStream(data);
   
     @Test
     public void testGetName() {
-        DataSource ds = new AttachmentDataSource(ctParam, inParam);
+        DataSource ds = new AttachmentDataSource(ctParam, inParam1);
         assertEquals("ctParam",ds.getName());
     }
 }
