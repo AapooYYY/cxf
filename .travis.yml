@@ -9,10 +9,10 @@ jdk:
 addons:
   sonarcloud:
     organization: "semsonar" 
-      token: 
-        secure: "travis encrypt ec19a9aca635bd8d9f5cb68f5a1ea24f38d43869" # encrypted value of your token
+    token: 
+      secure: "travis encrypt ec19a9aca635bd8d9f5cb68f5a1ea24f38d43869" # encrypted value of your token
     
-script: mvn clean -Dcheckstyle.skip -Dpmd.skip=true -Pcoverage install sonar:sonar 
+script: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent -Dcheckstyle.skip -Dpmd.skip=true -Pcoverage install sonar:sonar 
 
 cache:
  directories:
